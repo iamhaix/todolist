@@ -8,11 +8,11 @@
 
 
 
-var base = {}
+var base = {};
 
 /*
  *模拟jsp中的include标签，在一个js文件中引入另一个js文件
- *如 include("scripts/b.js")
+ *如 include("script/b.js")
  */
 base.include = function(path){ 
     var a=document.createElement("script");
@@ -20,6 +20,8 @@ base.include = function(path){
     a.src=path; 
     var head=document.getElementsByTagName("head")[0];
     head.appendChild(a);
+
+	return head.innerHTML;
 }
 
 /*
@@ -29,14 +31,19 @@ base.include = function(path){
 base.setCookie = function(params){
 	
 	var s = "";
-	params.name && params.value ? (s = params.name + "=" + encodeURIComponent(params.value)): return false;
+	if(params.name && params.value){
+		s = params.name + "=" + encodeURIComponent(params.value);
+	}else{
+		return false;
+	}
 
-	params.date ? s += ";expires=" + (param.date).toGMTString() : "";
-	params.path ? s += ";path=" + params.path : "";
+	s += (params.date ? (";expires=" + (param.date).toGMTString() ): "");
 
-	params.domain ? s += ";domain=" + params.domain : "";
+	s += (params.path ? (";path=" + params.path ): "");
 
-	params.secure ? s += ";secure" : "";
+	s += (params.domain ? (";domain=" + params.domain) : "");
+
+	s +=(params.secure ? ";secure" : "");
 
 	document.cookie = s;
 
@@ -68,8 +75,10 @@ base.getCookie = function (name) {
 base.deleteCookie = function(iname, idomain, ipath){
 	
 	var s = iname + "=;" + ";expires=-1";
-	s += (idomain != null ? ";domain=" + idomain);
-	s += (ipath != null ? ";path=" + ipath);
+	s += (idomain != null ? ";domain=" + idomain : "");
+	s += (ipath != null ? ";path=" + ipath : "");
 	
 	document.cookie = s;
+
+	return true;
 }
