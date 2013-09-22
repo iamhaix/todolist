@@ -1,0 +1,28 @@
+<!Doctype html>
+<html>
+<script type="text/javascript">
+
+var i = {
+	a:1,
+	b:2,  
+	say:function(){
+		var a = 3;
+		alert("a="+a);	
+		alert("b="+this.b);
+		that = this;
+		function aa(that){
+			this = that;
+			alert(this.a);
+		}
+		aa(that);
+	}
+};
+var a = 5;
+var hi = i.sayhi = function(){
+	var a = 4;
+	alert("hia="+this.a);
+}
+i.say();
+hi();
+</script>
+</html>

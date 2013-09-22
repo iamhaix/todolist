@@ -1,0 +1,92 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.7	//
+G	.\jquery.1.4.2-min.js	/^f(a[0],b):j}function z(){return(new Date).getTime()}function G(){return false}function U(){return true}function R(a,b,e){e[0].type=a;return c.event.handle.apply(b,e)}function S(a){var b,e=[],g=[],f=arguments,l,k,s,m,r,y;k=c.data(this,"events");if(!(a.liveFired===this||!k||!k.live||a.button&&a.type==="click")){a.liveFired=this;var B=k.live.slice(0);for(m=0;m<B.length;m++){k=B[m];k.origType.replace(da,"")===a.type?g.push(k.selector):B.splice(m--,1)}l=c(a.target).closest(g,a.currentTarget);r=0;for(y=$/;"	f
+R	.\jquery.1.4.2-min.js	/^f(a[0],b):j}function z(){return(new Date).getTime()}function G(){return false}function U(){return true}function R(a,b,e){e[0].type=a;return c.event.handle.apply(b,e)}function S(a){var b,e=[],g=[],f=arguments,l,k,s,m,r,y;k=c.data(this,"events");if(!(a.liveFired===this||!k||!k.live||a.button&&a.type==="click")){a.liveFired=this;var B=k.live.slice(0);for(m=0;m<B.length;m++){k=B[m];k.origType.replace(da,"")===a.type?g.push(k.selector):B.splice(m--,1)}l=c(a.target).closest(g,a.currentTarget);r=0;for(y=$/;"	f
+S	.\jquery.1.4.2-min.js	/^f(a[0],b):j}function z(){return(new Date).getTime()}function G(){return false}function U(){return true}function R(a,b,e){e[0].type=a;return c.event.handle.apply(b,e)}function S(a){var b,e=[],g=[],f=arguments,l,k,s,m,r,y;k=c.data(this,"events");if(!(a.liveFired===this||!k||!k.live||a.button&&a.type==="click")){a.liveFired=this;var B=k.live.slice(0);for(m=0;m<B.length;m++){k=B[m];k.origType.replace(da,"")===a.type?g.push(k.selector):B.splice(m--,1)}l=c(a.target).closest(g,a.currentTarget);r=0;for(y=$/;"	f
+S.L	.\jquery.1.4.2-min.js	/^l.length;r<y;r++)for(m=0;m<B.length;m++){k=B[m];if(l[r].selector===k.selector){s=l[r].elem;g=null;if(k.preType==="mouseenter"||k.preType==="mouseleave")g=c(a.relatedTarget).closest(k.selector)[0];if(!g||g!==s)e.push({elem:s,handleObj:k})}}r=0;for(y=e.length;r<y;r++){l=e[r];a.currentTarget=l.elem;a.data=l.handleObj.data;a.handleObj=l.handleObj;if(l.handleObj.origHandler.apply(l.elem,f)===false){b=false;break}}return b}}function L(a,b){return"live."+(a&&a!=="*"?a+".":"")+b.replace(\/\\.\/g,"`").replace(\/ \/g,$/;"	f
+S.T	.\jquery.1.4.2-min.js	/^true;if(l=c.fragments[a[0]])if(l!==1)g=l}if(!g){g=b.createDocumentFragment();c.clean(a,b,g,e)}if(f)c.fragments[a[0]]=l?g:1;return{fragment:g,cacheable:f}}function T(a,b){var e={};c.each(Ea.concat.apply([],Ea.slice(0,b)),function(){e[this]=a});return e}function V(a){return"scrollTo"in a&&a.document?a:a.nodeType===9?a.defaultView||a.parentWindow:false}var c=function(a,b){return new c.fn.init(a,b)},oa=p.jQuery,J=p.$,v=p.document,N,K=\/^[^<]*(<[\\w\\W]+>)[^>]*$|^#([\\w-]+)$\/,M=\/^.[^:#\\[\\.,]*$\/,ka=\/\\S\/,$=$/;"	f
+S.V	.\jquery.1.4.2-min.js	/^true;if(l=c.fragments[a[0]])if(l!==1)g=l}if(!g){g=b.createDocumentFragment();c.clean(a,b,g,e)}if(f)c.fragments[a[0]]=l?g:1;return{fragment:g,cacheable:f}}function T(a,b){var e={};c.each(Ea.concat.apply([],Ea.slice(0,b)),function(){e[this]=a});return e}function V(a){return"scrollTo"in a&&a.document?a:a.nodeType===9?a.defaultView||a.parentWindow:false}var c=function(a,b){return new c.fn.init(a,b)},oa=p.jQuery,J=p.$,v=p.document,N,K=\/^[^<]*(<[\\w\\W]+>)[^>]*$|^#([\\w-]+)$\/,M=\/^.[^:#\\[\\.,]*$\/,ka=\/\\S\/,$=$/;"	f
+S.Z	.\jquery.1.4.2-min.js	/^"&")}function Z(a){return!a||!a.parentNode||a.parentNode.nodeType===11}function ea(a,b){var e=0;b.each(function(){if(this.nodeName===(a[e]&&a[e].nodeName)){var g=c.data(a[e++]),f=c.data(this,g);if(g=g&&g.events){delete f.handle;f.events={};for(var l in g)for(var k in g[l])c.event.add(this,l,g[l][k],g[l][k].data)}}})}function fa(a,b,e){var g,f,l;b=b&&b[0]?b[0].ownerDocument||b[0]:v;if(a.length===1&&typeof a[0]==="string"&&a[0].length<512&&b===v&&!Ca.test(a[0])&&(c.support.checkClone||!Da.test(a[0]))){f=$/;"	f
+S.c	.\jquery.1.4.2-min.js	/^true;if(l=c.fragments[a[0]])if(l!==1)g=l}if(!g){g=b.createDocumentFragment();c.clean(a,b,g,e)}if(f)c.fragments[a[0]]=l?g:1;return{fragment:g,cacheable:f}}function T(a,b){var e={};c.each(Ea.concat.apply([],Ea.slice(0,b)),function(){e[this]=a});return e}function V(a){return"scrollTo"in a&&a.document?a:a.nodeType===9?a.defaultView||a.parentWindow:false}var c=function(a,b){return new c.fn.init(a,b)},oa=p.jQuery,J=p.$,v=p.document,N,K=\/^[^<]*(<[\\w\\W]+>)[^>]*$|^#([\\w-]+)$\/,M=\/^.[^:#\\[\\.,]*$\/,ka=\/\\S\/,$=$/;"	f
+S.ea	.\jquery.1.4.2-min.js	/^"&")}function Z(a){return!a||!a.parentNode||a.parentNode.nodeType===11}function ea(a,b){var e=0;b.each(function(){if(this.nodeName===(a[e]&&a[e].nodeName)){var g=c.data(a[e++]),f=c.data(this,g);if(g=g&&g.events){delete f.handle;f.events={};for(var l in g)for(var k in g[l])c.event.add(this,l,g[l][k],g[l][k].data)}}})}function fa(a,b,e){var g,f,l;b=b&&b[0]?b[0].ownerDocument||b[0]:v;if(a.length===1&&typeof a[0]==="string"&&a[0].length<512&&b===v&&!Ca.test(a[0])&&(c.support.checkClone||!Da.test(a[0]))){f=$/;"	f
+S.fa	.\jquery.1.4.2-min.js	/^"&")}function Z(a){return!a||!a.parentNode||a.parentNode.nodeType===11}function ea(a,b){var e=0;b.each(function(){if(this.nodeName===(a[e]&&a[e].nodeName)){var g=c.data(a[e++]),f=c.data(this,g);if(g=g&&g.events){delete f.handle;f.events={};for(var l in g)for(var k in g[l])c.event.add(this,l,g[l][k],g[l][k].data)}}})}function fa(a,b,e){var g,f,l;b=b&&b[0]?b[0].ownerDocument||b[0]:v;if(a.length===1&&typeof a[0]==="string"&&a[0].length<512&&b===v&&!Ca.test(a[0])&&(c.support.checkClone||!Da.test(a[0]))){f=$/;"	f
+U	.\jquery.1.4.2-min.js	/^f(a[0],b):j}function z(){return(new Date).getTime()}function G(){return false}function U(){return true}function R(a,b,e){e[0].type=a;return c.event.handle.apply(b,e)}function S(a){var b,e=[],g=[],f=arguments,l,k,s,m,r,y;k=c.data(this,"events");if(!(a.liveFired===this||!k||!k.live||a.button&&a.type==="click")){a.liveFired=this;var B=k.live.slice(0);for(m=0;m<B.length;m++){k=B[m];k.origType.replace(da,"")===a.type?g.push(k.selector):B.splice(m--,1)}l=c(a.target).closest(g,a.currentTarget);r=0;for(y=$/;"	f
+b64_hmac_sha1	.\sha1.js	/^function b64_hmac_sha1(key, data) {$/;"	f
+b64_sha1	.\sha1.js	/^function b64_sha1(s) {$/;"	f
+b64pad	.\sha1.js	/^var b64pad = ""; \/*   base-64   pad   character.   "="   for   strict   RFC   compliance       *\/$/;"	v
+base.deleteCookie	.\base.js	/^base.deleteCookie = function(iname, idomain, ipath){$/;"	f
+base.getCookie	.\base.js	/^base.getCookie = function (name) {$/;"	f
+base.include	.\base.js	/^base.include = function(path){ $/;"	f
+base.setCookie	.\base.js	/^base.setCookie = function(params){$/;"	f
+binb2b64	.\sha1.js	/^function binb2b64(binarray) {$/;"	f
+binb2hex	.\sha1.js	/^function binb2hex(binarray) {$/;"	f
+binb2str	.\sha1.js	/^function binb2str(bin) {$/;"	f
+bindAllEvent	.\main-backen.js	/^function bindAllEvent() {$/;"	f
+bindAllEvent	.\main-haixi.js	/^function bindAllEvent() {$/;"	f
+c.fn.init	.\jquery.1.4.2-min.js	/^function(b,e){return a.call(b,e,b)}))},end:function(){return this.prevObject||c(null)},push:ra,sort:[].sort,splice:[].splice};c.fn.init.prototype=c.fn;c.extend=c.fn.extend=function(){var a=arguments[0]||{},b=1,e=arguments.length,g=false,f,l,k,s;if(typeof a==="boolean"){g=a;a=arguments[1]||{};b=2}if(typeof a!=="object"&&!c.isFunction(a))a={};if(e===b){a=this;--b}for(;b<e;b++)if((f=arguments[b])!=null)for(l in f){k=a[l];s=f[l];if(a!==s)if(g&&s&&(c.isPlainObject(s)||c.isArray(s))){k=k&&(c.isPlainObject(k)||$/;"	c
+chrsz	.\sha1.js	/^var chrsz = 8; \/*   bits   per   input   character.   8   -   ASCII;   16   -   Unicode             *\/$/;"	v
+core_hmac_sha1	.\sha1.js	/^function core_hmac_sha1(key, data) {$/;"	f
+core_sha1	.\sha1.js	/^function core_sha1(x, len) {$/;"	f
+delCookie	.\common.js	/^function delCookie(name){$/;"	f
+getCompleteThing	.\main-backen.js	/^function getCompleteThing() {$/;"	f
+getCompleteThing	.\main-haixi.js	/^function getCompleteThing() {$/;"	f
+getCompleteThing	.\main.js	/^function getCompleteThing() {$/;"	f
+getCookie	.\common.js	/^function getCookie(name) {$/;"	f
+getafterclock	.\main-backen.js	/^function getafterclock() {$/;"	f
+getafterclock	.\main-haixi.js	/^function getafterclock() {$/;"	f
+getafterclock	.\main.js	/^function getafterclock() {$/;"	f
+getbeforeclock	.\main-backen.js	/^function getbeforeclock() {$/;"	f
+getbeforeclock	.\main-haixi.js	/^function getbeforeclock() {$/;"	f
+getbeforeclock	.\main.js	/^function getbeforeclock() {$/;"	f
+geteventlist	.\main-backen.js	/^function geteventlist() {$/;"	f
+geteventlist	.\main-haixi.js	/^function geteventlist() {$/;"	f
+geteventlist	.\main.js	/^function geteventlist() {$/;"	f
+hex_hmac_sha1	.\sha1.js	/^function hex_hmac_sha1(key, data) {$/;"	f
+hex_sha1	.\sha1.js	/^function hex_sha1(s) {$/;"	f
+hexcase	.\sha1.js	/^var hexcase = 0; \/*   hex   output   format.   0   -   lowercase;   1   -   uppercase                 *\/$/;"	v
+jq	.\common.js	/^var jq = jQuery.noConflict();$/;"	v
+jq	.\main-backen.js	/^var jq = jQuery.noConflict();$/;"	v
+jq	.\main-haixi.js	/^var jq = jQuery.noConflict();$/;"	v
+jq	.\main.js	/^var jq = jQuery.noConflict();$/;"	v
+login	.\common.js	/^function login(uname,passwd){$/;"	f
+login	.\index.js	/^function login(uname,passwd){$/;"	f
+mainFunction	.\main-backen.js	/^function mainFunction() {$/;"	f
+mainFunction	.\main-haixi.js	/^function mainFunction() {$/;"	f
+modifyTime	.\main-backen.js	/^function modifyTime(taskid) {$/;"	f
+modifyTime	.\main-haixi.js	/^function modifyTime(taskid) {$/;"	f
+modifyTime	.\main.js	/^function modifyTime(taskid) {$/;"	f
+noCompleteThing	.\main-backen.js	/^function noCompleteThing() {$/;"	f
+noCompleteThing	.\main-haixi.js	/^function noCompleteThing() {$/;"	f
+noCompleteThing	.\main.js	/^function noCompleteThing() {$/;"	f
+o	.\jquery.1.4.2-min.js	/^(function(p,j){function u(){if(!c.isReady){try{v.documentElement.doScroll("left")}catch(a){setTimeout(u,1);return}c.ready()}}function t(a,b){b.src?c.ajax({url:b.src,async:false,dataType:"script"}):c.globalEval(b.text||b.textContent||b.innerHTML||"");b.parentNode&&b.parentNode.removeChild(b)}function o(a,b,e,g,f,l){var k=a.length;if(typeof b==="object"){for(var s in b)o(a,s,b[s],g,f,e);return a}if(e!==j){g=!l&&g&&c.isFunction(e);for(s=0;s<k;s++)f(a[s],b,g?e.call(a[s],s,f(a[s],b)):e,l);return a}return k?$/;"	f
+rol	.\sha1.js	/^function rol(num, cnt) {$/;"	f
+safe_add	.\sha1.js	/^function safe_add(x, y) {$/;"	f
+schduletask	.\main-backen.js	/^function schduletask() {$/;"	f
+schduletask	.\main-haixi.js	/^function schduletask() {$/;"	f
+schduletask	.\main.js	/^function schduletask() {$/;"	f
+setCookie	.\common.js	/^function setCookie(name,value,days)\/\/两个参数，一个是cookie的名子，一个是值$/;"	f
+sha1_ft	.\sha1.js	/^function sha1_ft(t, b, c, d) {$/;"	f
+sha1_kt	.\sha1.js	/^function sha1_kt(t) {$/;"	f
+sha1_vm_test	.\sha1.js	/^function sha1_vm_test() {$/;"	f
+showBlock	.\main-backen.js	/^function showBlock(id) {$/;"	f
+showBlock	.\main-haixi.js	/^function showBlock(id) {$/;"	f
+showBlock	.\main.js	/^function showBlock(id) {$/;"	f
+showNone	.\main-backen.js	/^function showNone(id) {$/;"	f
+showNone	.\main-haixi.js	/^function showNone(id) {$/;"	f
+showNone	.\main.js	/^function showNone(id) {$/;"	f
+str2binb	.\sha1.js	/^function str2binb(str) {$/;"	f
+str_hmac_sha1	.\sha1.js	/^function str_hmac_sha1(key, data) {$/;"	f
+str_sha1	.\sha1.js	/^function str_sha1(s) {$/;"	f
+t	.\jquery.1.4.2-min.js	/^(function(p,j){function u(){if(!c.isReady){try{v.documentElement.doScroll("left")}catch(a){setTimeout(u,1);return}c.ready()}}function t(a,b){b.src?c.ajax({url:b.src,async:false,dataType:"script"}):c.globalEval(b.text||b.textContent||b.innerHTML||"");b.parentNode&&b.parentNode.removeChild(b)}function o(a,b,e,g,f,l){var k=a.length;if(typeof b==="object"){for(var s in b)o(a,s,b[s],g,f,e);return a}if(e!==j){g=!l&&g&&c.isFunction(e);for(s=0;s<k;s++)f(a[s],b,g?e.call(a[s],s,f(a[s],b)):e,l);return a}return k?$/;"	f
+tag	.\main-backen.js	/^var tag = 0;$/;"	v
+tag	.\main-haixi.js	/^var tag = 0;$/;"	v
+tag	.\main.js	/^var tag = 0;$/;"	v
+time	.\index.js	/^		var time = date.getFullYear() + '年' + (date.getMonth() + 1) + '月' + date.getDate() + '日' + ' ' + arr_week[date.getDay()];$/;"	v
+title	.\main-backen.js	/^var title;$/;"	v
+title	.\main-haixi.js	/^var title;$/;"	v
+titleBack	.\main.js	/^var titleBack;$/;"	v
+z	.\jquery.1.4.2-min.js	/^f(a[0],b):j}function z(){return(new Date).getTime()}function G(){return false}function U(){return true}function R(a,b,e){e[0].type=a;return c.event.handle.apply(b,e)}function S(a){var b,e=[],g=[],f=arguments,l,k,s,m,r,y;k=c.data(this,"events");if(!(a.liveFired===this||!k||!k.live||a.button&&a.type==="click")){a.liveFired=this;var B=k.live.slice(0);for(m=0;m<B.length;m++){k=B[m];k.origType.replace(da,"")===a.type?g.push(k.selector):B.splice(m--,1)}l=c(a.target).closest(g,a.currentTarget);r=0;for(y=$/;"	f

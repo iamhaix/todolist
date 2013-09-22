@@ -1,0 +1,123 @@
+<!DOCTYPE html> 
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>SoEasy!——妈妈再也不用担心我的事情了！</title>
+
+<link href="css/main.css" rel="stylesheet"/>
+<link href="css/index.css" rel="stylesheet" />
+        <script src="js/jquery.1.4.2-min.js"></script>
+ <script src="js/common.js"></script>
+  <script src="js/main.js"></script> 
+ <script src="js/sha1.js"></script>    
+      <script src="My97DatePicker/WdatePicker.js"></script>
+</head>
+<body>
+	<!--顶栏topbar-->
+	<div id="topbar">
+		<div id="contentBar">
+			<ul>
+				<li class="title left">SoEasy!</li>
+			<li class="time center" id="currentTime"></li>
+				<li class="menu right"><a href="#" id="login">登录</a><a href="#" id="register">注册</a></li>
+			</ul>
+		</div>
+	</div>
+	<!--下滑登陆注册设置区域-->
+	<div class="loginDiv slideDiv">
+	    <form >
+		            <p id="loginError"></p>
+					<label for="username">邮箱</label>
+					<input type="text" name="username" id="uname" autocomplete="on" required="required"/>
+					<label for="password">密码</label>
+					<input type="password" name="password" id="passwd" required="required" />
+					<span><a>忘记密码</a></span>
+                    <input class="login button" id="loginsubmit" type="button" value="Login" /> 
+					<input type="checkbox" name="vehicle" value="Bike" checked="checked">自动登录
+	    </form>
+		<div class="close"><a href="#">收起</a></div>
+	</div>
+	<div class="registerDiv slideDiv">
+		<form >
+				    <p id="registerError"></p>
+					<label for="uname">邮箱</label>
+					<input type="text" name="username" id="unameRegister" autocomplete="on" required="required"/>
+					<label for="passwd">密码</label>
+					<input type="password" name="password" id="passwdRegister" required="required" />
+					<label for="passwd">确认密码</label>
+					<input type="password" name="password" id="passwdagain" required="required" />
+                    <input class="login register button" id="registersumbit" type="button" value="注册" />
+	    </form>
+			<div class="close"><a href="#">收起</a></div>
+	</div>
+	<div class="remindDiv slideDiv">
+		<form >
+				    <p id="remindDiv"></p>
+	    </form>
+			<div class="close"><a href="#">收起</a></div>
+	</div>
+	<div class="clockDiv slideDiv">
+		<form >
+				    <p id="clockDiv"></p>
+	    </form>
+			<div class="close"><a href="#">收起</a></div>
+	</div>
+	<div class="settingDiv slideDiv">
+		这里是设置区域~
+	</div>
+	<!--主内容区-->
+    <div class="content">
+	<p id="textError">		</p>
+	 <div class="history">
+		<div class="history-date today">
+			<ul id="today">
+				<h2 class="first">
+					<a href="#nogo" >今天</a>
+					<div id="addTask"><img src="images/icon06.png"></div>
+					<div class="listThing">还剩<span id="noCompleteThing">0</span>件事</div>
+					<div class="newTask" style="display:none">
+					<input id="text" type="text" size='1' maxlength='20'>
+					<img id="clockSet" src="images/icon02.png">
+					<input type="text" id="timepicker" onclick="WdatePicker({dateFmt:'HH:mm'})" class="WdatePicker"/>
+					<button id="confirmCreateTask" type="button">添加</button>
+					<button  id="cancelCreateTask" type="button">取消</button>
+					<!--<button style="display:none;" id="confirmSetClock" type="button">设置</button>
+					<button style="display:none;" id="cancelSetClock" type="button">取消</button>-->					
+					</div>
+					<div id="errorInfo"></div>	
+				</h2>
+		</ul>
+		</div>
+		<div class="history-date other future">
+	<p id="textErrorFuture">	</p>
+			<ul id="future">
+				<h2 class="next">
+					<a href="#nogo" >即将</a>
+					<div id="addTaskFuture"><img src="images/icon06.png"></div>
+					<div class="newTaskFuture" style="display:none">
+					<input id="dateFuture" class="Wdate" type="text" onfocus="WdatePicker({skin:'whyGreen',minDate:'%y-%M-#{%d+1}'})" style="width:90px" title="选择日期"/>
+					<input id="textFuture" type="text">
+					<img id="clockSetFuture" src="images/icon02.png">
+					<input type="text" id="timepickerFuture" onclick="WdatePicker({dateFmt:'HH:mm'})" class="WdatePicker"/>
+					<button id="confirmCreateTaskFuture" type="button">添加</button>
+					<button  id="cancelCreateTaskFuture" type="button">取消</button>
+					<!--<button style="display:none;" id="confirmSetClockFuture" type="button">设置</button>
+					<button style="display:none;" id="cancelSetClockFuture" type="button">取消</button>					-->
+					</div>
+					<div id="errorInfoFuture"></div>	
+				</h2>
+					
+			</ul>
+		</div>
+		
+		<div class="history-date other past">
+          <ul id="complete">
+				<h2 class="next">
+					<a href="#nogo" >过去</a>	
+				</h2>
+			</ul>
+		</div>
+	 </div>
+    </div>
+</body>
+</html>
