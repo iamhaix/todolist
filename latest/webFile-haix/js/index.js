@@ -29,7 +29,6 @@ var easy = {
 	//“退出”，常量，已登录时显示
 	LOGOUTTITLE : '退出',
 
-	var that = this;
 	/*
 	*初始化
 	* 注册信息对象，里面存储用户注册的信息
@@ -41,7 +40,7 @@ var easy = {
 		//isLock = false;
 		
 		//设置文档顶部时间
-		var currentTime = that.getCurrentTime();
+		var currentTime = this.getCurrentTime();
 		jq("#currentTime").html(currentTime);
 		
 		//登录注册退出显示
