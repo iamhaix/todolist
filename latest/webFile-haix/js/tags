@@ -15,6 +15,7 @@ S.c	.\jquery.1.4.2-min.js	/^true;if(l=c.fragments[a[0]])if(l!==1)g=l}if(!g){g=b.
 S.ea	.\jquery.1.4.2-min.js	/^"&")}function Z(a){return!a||!a.parentNode||a.parentNode.nodeType===11}function ea(a,b){var e=0;b.each(function(){if(this.nodeName===(a[e]&&a[e].nodeName)){var g=c.data(a[e++]),f=c.data(this,g);if(g=g&&g.events){delete f.handle;f.events={};for(var l in g)for(var k in g[l])c.event.add(this,l,g[l][k],g[l][k].data)}}})}function fa(a,b,e){var g,f,l;b=b&&b[0]?b[0].ownerDocument||b[0]:v;if(a.length===1&&typeof a[0]==="string"&&a[0].length<512&&b===v&&!Ca.test(a[0])&&(c.support.checkClone||!Da.test(a[0]))){f=$/;"	f
 S.fa	.\jquery.1.4.2-min.js	/^"&")}function Z(a){return!a||!a.parentNode||a.parentNode.nodeType===11}function ea(a,b){var e=0;b.each(function(){if(this.nodeName===(a[e]&&a[e].nodeName)){var g=c.data(a[e++]),f=c.data(this,g);if(g=g&&g.events){delete f.handle;f.events={};for(var l in g)for(var k in g[l])c.event.add(this,l,g[l][k],g[l][k].data)}}})}function fa(a,b,e){var g,f,l;b=b&&b[0]?b[0].ownerDocument||b[0]:v;if(a.length===1&&typeof a[0]==="string"&&a[0].length<512&&b===v&&!Ca.test(a[0])&&(c.support.checkClone||!Da.test(a[0]))){f=$/;"	f
 U	.\jquery.1.4.2-min.js	/^f(a[0],b):j}function z(){return(new Date).getTime()}function G(){return false}function U(){return true}function R(a,b,e){e[0].type=a;return c.event.handle.apply(b,e)}function S(a){var b,e=[],g=[],f=arguments,l,k,s,m,r,y;k=c.data(this,"events");if(!(a.liveFired===this||!k||!k.live||a.button&&a.type==="click")){a.liveFired=this;var B=k.live.slice(0);for(m=0;m<B.length;m++){k=B[m];k.origType.replace(da,"")===a.type?g.push(k.selector):B.splice(m--,1)}l=c(a.target).closest(g,a.currentTarget);r=0;for(y=$/;"	f
+aa	.\test.html	/^		function aa(that){$/;"	f
 b64_hmac_sha1	.\sha1.js	/^function b64_hmac_sha1(key, data) {$/;"	f
 b64_sha1	.\sha1.js	/^function b64_sha1(s) {$/;"	f
 b64pad	.\sha1.js	/^var b64pad = ""; \/*   base-64   pad   character.   "="   for   strict   RFC   compliance       *\/$/;"	v
@@ -53,7 +54,6 @@ jq	.\main-backen.js	/^var jq = jQuery.noConflict();$/;"	v
 jq	.\main-haixi.js	/^var jq = jQuery.noConflict();$/;"	v
 jq	.\main.js	/^var jq = jQuery.noConflict();$/;"	v
 login	.\common.js	/^function login(uname,passwd){$/;"	f
-login	.\index.js	/^function login(uname,passwd){$/;"	f
 mainFunction	.\main-backen.js	/^function mainFunction() {$/;"	f
 mainFunction	.\main-haixi.js	/^function mainFunction() {$/;"	f
 modifyTime	.\main-backen.js	/^function modifyTime(taskid) {$/;"	f
@@ -63,6 +63,9 @@ noCompleteThing	.\main-backen.js	/^function noCompleteThing() {$/;"	f
 noCompleteThing	.\main-haixi.js	/^function noCompleteThing() {$/;"	f
 noCompleteThing	.\main.js	/^function noCompleteThing() {$/;"	f
 o	.\jquery.1.4.2-min.js	/^(function(p,j){function u(){if(!c.isReady){try{v.documentElement.doScroll("left")}catch(a){setTimeout(u,1);return}c.ready()}}function t(a,b){b.src?c.ajax({url:b.src,async:false,dataType:"script"}):c.globalEval(b.text||b.textContent||b.innerHTML||"");b.parentNode&&b.parentNode.removeChild(b)}function o(a,b,e,g,f,l){var k=a.length;if(typeof b==="object"){for(var s in b)o(a,s,b[s],g,f,e);return a}if(e!==j){g=!l&&g&&c.isFunction(e);for(s=0;s<k;s++)f(a[s],b,g?e.call(a[s],s,f(a[s],b)):e,l);return a}return k?$/;"	f
+passwd	.\index.js	/^		var passwd = jq('#passwd');$/;"	v
+rightFormat	.\index.js	/^		var rightFormat = pattern.test(emailstr); $/;"	v
+rightFormat	.\index.js	/^		var rightFormat = pattern.test(passwd);$/;"	v
 rol	.\sha1.js	/^function rol(num, cnt) {$/;"	f
 safe_add	.\sha1.js	/^function safe_add(x, y) {$/;"	f
 schduletask	.\main-backen.js	/^function schduletask() {$/;"	f
