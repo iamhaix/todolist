@@ -1,5 +1,5 @@
 /***************************************************/
-// main.js
+// index.js
 //
 // date:2013-9-2
 // author:zhang haixi
@@ -42,23 +42,72 @@ var easy = {
 		//设置文档顶部时间
 		var currentTime = this.getCurrentTime();
 		jq("#currentTime").html(currentTime);
-		
-		//登录注册退出显示
-		if (!isLogin) {
-			
-			jq('#login').text(this.LOGINTITLE);
-			jq('#register').text(this.REGISTERTITLE);
-		}else {
-			
-			var uname = base.getCookie('uname');
-			jq('#login').text(uname);
-			jq('#register').text(this.LOGOUTTITLE);
-		}
+	
+		//点击登录
+		jq(documen).delegate('.login','click',this.loginShow);
 
-		jq().live('click', function(){login();});
+		//绑定登录事件
+		jq(document).delegate('.loginSubmit','click',this.loginSubmit);
 
 	},
-	
+
+	/*
+	 *点击登录按钮后显示登录框
+	 *
+	 *
+	 */
+	loginShow : function(){
+		
+		jq('.loginDiv').show();
+		if(base.getCookie('uname')){
+			jq('#uname').attr('value',base.getCookie('uname'));
+			jq('#passwd').focus();
+		};
+		jq('#uname').focus();
+	},
+
+	/*
+	 *提交登录处理
+	 *
+	 *
+	 */
+	loginSubmit : function(){ 
+			
+		var uname = jq('#uname');
+		var passwd = jq('#passwd');
+		if(user.isRightFormat('username',uname)){
+			if(user.isRightFormat('password',passwd)){
+				isLogin = user.login({username:uname, password: passwd});
+			}else{
+				jq("#loginError").text(MSG.LOGIN.UNVALIDPASSWD);
+				return false;
+			}
+		}else{
+			jq("#loginError").text(MSG.LOGIN.UNVALIDUNAME);
+			return false;
+		}
+		this.initStatus();
+		return true;
+	},
+
+	/*
+	 *判断登录状态，做处理
+	 *
+	 *
+	 */
+	initStatus : function(){
+
+		if (!isLogin) {
+			jq('#loginOrName').attr('class','login').text(MSG.LOGINTITLE);
+			jq('#registerOrLogout').attr('class','register').text(MSG.REGISTERTITLE);
+		}else {
+			var uname = base.getCookie('uname');
+			jq('#loginOrName').attr('class','uname').text(uname);
+			jq('#registerOrLogout').attr('class','logout').text(this.LOGOUTTITLE);
+		}
+			 
+	},
+
 	/*
 	 *获取当前时间
 	 *format：xxxxx年xx月xx日 星期x
@@ -71,219 +120,219 @@ var easy = {
 		var time = date.getFullYear() + '年' + (date.getMonth() + 1) + '月' + date.getDate() + '日' + ' ' + arr_week[date.getDay()];
 
 		return time;
-	}
-	/*
-	*检查邮箱是否有效，1、检测格式；2、是否已注册
-	*
-	*/
-	isValidEmailOrUname : function(){},
-
-	/*
-	*检查密码格式，1、长度； 2、是否弱口令
-	*
-	*/
-	isValidPasswd : function(){},
-
-	/*
-	*确认密码
-	*
-	*/
-	confirmPasswd : function(){},
+	},
 
 
-	//用户类
-	user : {
+};
+
+
+//=============================================
+//用户对象
+//里面包含用户的各种操作，如登陆注册验证等
+//
+//=============================================
+var	user = {
 		
-		//用户名
-		userName : null;
+	//用户名
+	userName : null;
 
-		//邮箱
-		email : null;
+	//邮箱
+	email : null;
 
-		//密码
-		passwd : null;
+	//密码
+	passwd : null;
 
-		//令牌
-		token : null;
+	//令牌
+	token : null;
 
-		/*
-		*登录
-		*loginInfo 登录对象，里面存储用户登录需要的信息
-		*/
-		login : function(loginInfo){},
-
-	  	/*
-	   	*注册
-	   	*registerInfo 注册信息对象，里面存储用户注册的信息
-	   	*/
-	  	register : function(registerInfo){},
-
-	  	/*
-	  	*退出
-	   	*
-	   	*/
-		logout : function(){},
-
-		/*
-		*记住密码，自动登录
-		*
-		*/
-		rememberMyLogin : function(){},
-
-		/*
-		*找回密码
-		*
-		*/
-		findMyPassword : function(){},
-
-		/*
-		*检查邮箱
-		*
-		*/
-		isValidEmailOrUname : function(){},
-
-		/*
-		*检查密码
-		*
-		*/
-		isValidPasswd : function(){},
-
-		/*
-		*
-		*
-		*/
+	/*
+	*登录
+	*loginInfo 登录对象，里面存储用户登录需要的信息
+	*{username:xxx, passwd:xxx}
+	*
+	*/
+	login : function(loginInfo){
+		
+		if (loginInfo.username && loginInfo.password) {
+			
+			var url = '../User.DB.php';
+			jq.getJSON(url, {request:loginInfo}, function(response){
+				
+				if(response.code == 0){
+					return true;
+				}
+				return false;
+			});
+		}
+		return false;
 	},
 
-	task : {
-	
-		/*
-		*获取今天任务
-		*
-		*/
-		getTodayTask : function(){},
-	
-		/*
-		*获取即将任务
-		*
-		*/
-		getFutureTask : function(){},
+	/*
+	*注册
+	*registerInfo 注册信息对象，里面存储用户注册的信息
+	*/
+	register : function(registerInfo){},
 
-		/*
-		*获取已完成任务
-		*
-		*/
-		getFinishedTask : function(){},
+	/*
+	*退出
+	*
+	*/
+	logout : function(){},
 
+	/*
+	*记住密码，自动登录
+	*
+	*/
+	rememberMyLogin : function(){},
 
-		/*
-		*创建一条任务
-		*
-		*/
-		createOneTask : function(){},
+	/*
+	*找回密码
+	*
+	*/
+	findMyPassword : function(){},
 
-		/*
-		*删除一条任务
-		*
-		*/
-		deleteOneTask : function(){},
+	/*
+	 *检查邮箱是否有效，1、检测格式；2、是否已注册
+	 *
+	 */
+	isRightFormat : function(type, str){
+		
+		var isOk = false;
+		if(type && str){
+			switch (type){
+				case 'username':
+					isOk = (MSG.PATTERN.USERNAME).test(str);
+					break;
+				case 'password':
+					isOk = (MSG.PATTERN.PASSWORD).test(str);
+					break;
+				case 'email':
+					isOk = (MSG.PATTERN.EMAIL).test(str);
+					break;
+				default:
+					break;
+			}		
+		}
 
-		/*
-		*修改一条任务
-		*
-		*/
-		updateOneTask : function(){},
+		return isOk;
+	}
 
-		/*
-		*添加或修改闹钟提醒
-		*
-		*/
-		setClockForTask : function(){},
+	/*
+	 *检查邮箱是否有效，1、检测格式；2、是否已注册
+	 *
+	 */
+	isValidEmailOrUname : function(emailstr){
 
-		/*
-		*删除闹钟提醒
-		*
-		*/
-		deleteClcokForTask : function(){},
+		var url = '../Event.DB.php';
+		var param = {email:emailstr}
+		jq.getJSON(url,{request:param},function(response){
+			//code == 0 表示成功
+			if(response.code == 0){
+				return true;
+			}
+			return false;
+		});
 
-
-		/*
-		*自动推送今日未完成到明日
-		*
-		*/
-		updateNotFinishedToTommorror : function(){},
-
-
-		/*
-		*
-		*
-		*/
-		 : function(){},
+		return false;
 	},
 
-},
+	/*
+	 *检查密码格式，1、长度； 2、是否弱口令
+	 *
+	 */
+	isValidPasswd : function(passwd){
 
-//入口
+		//检查是否弱口令	
+		//-------waiting---------
+		return true;
+	},
+
+	/*
+	 *确认密码
+	 *
+	 */
+	confirmPasswd : function(confirmpass, firstpass){
+
+		return confirmpass === firstpass ? true : false;
+	}
+
+};
+
+//==================================================
+//task对象
+//里面包含对任务的各种操作方法
+//
+//==================================================
+var	task = {
+	
+	/*
+	*获取今天任务
+	*
+	*/
+	getTodayTask : function(){},
+	
+	/*
+	*获取即将任务
+	*
+	*/
+	getFutureTask : function(){},
+
+	/*
+	*获取已完成任务
+	*
+	*/
+	getFinishedTask : function(){},
+
+
+	/*
+	*创建一条任务
+	*
+	*/
+	createOneTask : function(){},
+
+	/*
+	*删除一条任务
+	*
+	*/
+	deleteOneTask : function(){},
+
+	/*
+	*修改一条任务
+	*
+	*/
+	updateOneTask : function(){},
+
+	/*
+	*添加或修改闹钟提醒
+	*
+	*/
+	setClockForTask : function(){},
+
+	/*
+	*删除闹钟提醒
+	*
+	*/
+	deleteClcokForTask : function(){},
+
+
+	/*
+	*自动推送今日未完成到明日
+	*
+	*/
+	updateNotFinishedToTommorror : function(){},
+
+
+	/*
+	*
+	*
+	*/
+	 : function(){},
+};
+
+//程序入口
 var  ez= jQuery.noConflict();
 ez(document).ready(function(){
 	
 	easy.init();	
 });
-
-
-function login(uname,passwd){
-	//alert(uname+passwd);
-	    document.getElementById("loginError").innerHTML="";
-		if(uname==""){
-	//alert("1"+uname+passwd);
-		  document.getElementById("loginError").innerHTML="请输入登录邮箱";
-		}
-		else if(passwd==""){
-	//alert("2"+uname+passwd);
-		  document.getElementById("loginError").innerHTML="请输入登录密码";
-		}
-		else{
-	//alert("3"+uname+passwd);
-		var passwd=hex_sha1(passwd);
-		var uid;
-		var paras = {};
-			paras.username = uname;
-			paras.password = passwd;
-			paras.logway   = '1';
-			paras.dowhat = 'login';
-			paras = JSON.stringify(paras);
-	//		alert(paras);
-			para = {
-				"jsonstring": paras
-			};
-			//console.log(paras);
-			if(uname&&passwd){
-			  if(jq("input:checked").length > 0){
-			   setCookie("uname",uname,30);
-			   //console.log(uname);
-			   setCookie("token",hex_sha1(jq("#passwd").val()),30);
-			   }
-			jq.post("../Event.DB.php",
-				para,
-				function(rt) {
-				data=eval("("+rt+")");				
-				   if(data.code==0){
-				   setCookie("uid",data.uid,30);
-			          getbeforeclock();
-				      schduletask();
-	                  geteventlist();
-	                  noCompleteThing();
-	                  getCompleteThing();
-				      document.getElementById("login").innerHTML=uname;
-					  document.getElementById("register").innerHTML="退出";
-					  document.getElementById("register").id="logout";
-					  jq(".loginDiv").hide(500);
-			//console.log(rt);
-				   }
-				   else{
-		               document.getElementById("loginError").innerHTML=data.message;				     
-				   }
-				});
-            }
-			}
-	}
 
