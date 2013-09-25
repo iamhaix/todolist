@@ -32,12 +32,12 @@ base.setCookie = function(params){
 	
 	var s = "";
 	if(params.name && params.value){
-		s += params.name + "=" + encodeURIComponent(params.value);
+		s = params.name + "=" + encodeURIComponent(params.value);
 	}else{
 		return false;
 	}
 
-	s += (params.date ? (";expires=" + (params.date).toGMTString() ): "");
+	s += (params.date ? (";expires=" + (param.date).toGMTString() ): "");
 
 	s += (params.path ? (";path=" + params.path ): "");
 
@@ -46,7 +46,6 @@ base.setCookie = function(params){
 	s +=(params.secure ? ";secure" : "");
 
 	document.cookie = s;
-	console.log("s="+s+"   cookie="+document.cookie);
 
 	return true;
 }
@@ -59,9 +58,9 @@ base.getCookie = function (name) {
 
 	var reg_s = "(?:;)?" + name + "=([^;]*);?"
 	var reg = new  RegExp(reg_s);
-console.log(document.cookie);
+
 	if (reg.test(document.cookie)) {
-console.log(RegExp["$1"]);
+
 		return decodeURIComponent(RegExp["$1"]);
 	}else {
 
