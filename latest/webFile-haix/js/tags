@@ -33,6 +33,7 @@ chrsz	.\sha1.js	/^var chrsz = 8; \/*   bits   per   input   character.   8   -  
 core_hmac_sha1	.\sha1.js	/^function core_hmac_sha1(key, data) {$/;"	f
 core_sha1	.\sha1.js	/^function core_sha1(x, len) {$/;"	f
 delCookie	.\common.js	/^function delCookie(name){$/;"	f
+ez	.\index.js	/^var  ez= jQuery.noConflict();$/;"	v
 getCompleteThing	.\main-backen.js	/^function getCompleteThing() {$/;"	f
 getCompleteThing	.\main-haixi.js	/^function getCompleteThing() {$/;"	f
 getCompleteThing	.\main.js	/^function getCompleteThing() {$/;"	f
@@ -63,14 +64,14 @@ noCompleteThing	.\main-backen.js	/^function noCompleteThing() {$/;"	f
 noCompleteThing	.\main-haixi.js	/^function noCompleteThing() {$/;"	f
 noCompleteThing	.\main.js	/^function noCompleteThing() {$/;"	f
 o	.\jquery.1.4.2-min.js	/^(function(p,j){function u(){if(!c.isReady){try{v.documentElement.doScroll("left")}catch(a){setTimeout(u,1);return}c.ready()}}function t(a,b){b.src?c.ajax({url:b.src,async:false,dataType:"script"}):c.globalEval(b.text||b.textContent||b.innerHTML||"");b.parentNode&&b.parentNode.removeChild(b)}function o(a,b,e,g,f,l){var k=a.length;if(typeof b==="object"){for(var s in b)o(a,s,b[s],g,f,e);return a}if(e!==j){g=!l&&g&&c.isFunction(e);for(s=0;s<k;s++)f(a[s],b,g?e.call(a[s],s,f(a[s],b)):e,l);return a}return k?$/;"	f
-passwd	.\index.js	/^		var passwd = jq('#passwd');$/;"	v
-rightFormat	.\index.js	/^		var rightFormat = pattern.test(emailstr); $/;"	v
-rightFormat	.\index.js	/^		var rightFormat = pattern.test(passwd);$/;"	v
+passwd	.\index.js	/^		var passwd = jq('#passwd').val();$/;"	v
+passwd	.\index.js	/^		var passwd = jq('#passwdRegister').val();$/;"	v
 rol	.\sha1.js	/^function rol(num, cnt) {$/;"	f
 safe_add	.\sha1.js	/^function safe_add(x, y) {$/;"	f
 schduletask	.\main-backen.js	/^function schduletask() {$/;"	f
 schduletask	.\main-haixi.js	/^function schduletask() {$/;"	f
 schduletask	.\main.js	/^function schduletask() {$/;"	f
+secondpass	.\index.js	/^		var secondpass = jq.trim(jq('#passwdAgain').val());$/;"	v
 setCookie	.\common.js	/^function setCookie(name,value,days)\/\/两个参数，一个是cookie的名子，一个是值$/;"	f
 sha1_ft	.\sha1.js	/^function sha1_ft(t, b, c, d) {$/;"	f
 sha1_kt	.\sha1.js	/^function sha1_kt(t) {$/;"	f
@@ -92,4 +93,5 @@ time	.\index.js	/^		var time = date.getFullYear() + '年' + (date.getMonth() + 1
 title	.\main-backen.js	/^var title;$/;"	v
 title	.\main-haixi.js	/^var title;$/;"	v
 titleBack	.\main.js	/^var titleBack;$/;"	v
+uid	.\index.js	/^		var uid = base.getCookie('uid');$/;"	v
 z	.\jquery.1.4.2-min.js	/^f(a[0],b):j}function z(){return(new Date).getTime()}function G(){return false}function U(){return true}function R(a,b,e){e[0].type=a;return c.event.handle.apply(b,e)}function S(a){var b,e=[],g=[],f=arguments,l,k,s,m,r,y;k=c.data(this,"events");if(!(a.liveFired===this||!k||!k.live||a.button&&a.type==="click")){a.liveFired=this;var B=k.live.slice(0);for(m=0;m<B.length;m++){k=B[m];k.origType.replace(da,"")===a.type?g.push(k.selector):B.splice(m--,1)}l=c(a.target).closest(g,a.currentTarget);r=0;for(y=$/;"	f

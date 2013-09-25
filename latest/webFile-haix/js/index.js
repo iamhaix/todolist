@@ -6,6 +6,9 @@
 // func:该类为soeasy网站页面提供交互支持
 //**************************************************/
 
+base.include('js/msg.js');
+var  jq = jQuery.noConflict();
+
 var easy = {
 
 	//标记是否已登录
@@ -15,19 +18,10 @@ var easy = {
 	isLock : false,
 	
 	//缓存编辑之前的任务内容
-	temptitle : '';
+	temptitle : '',
 
 	//当前时间
 	currentTime : null,
-
-	//“登录”，常量，未登录时显示
-	LOGINTITLE : '登录',
-
-	//“注册”，常量，未注册时显示
-	REGISTERTITLE : '注册',
-
-	//“退出”，常量，已登录时显示
-	LOGOUTTITLE : '退出',
 
 	/*
 	*初始化
@@ -44,11 +38,113 @@ var easy = {
 		jq("#currentTime").html(currentTime);
 	
 		//点击登录
-		jq(documen).delegate('.login','click',this.loginShow);
-
+		jq(document).delegate('.login','click',this.loginShow);
+		
+		//登录账号输入框失去焦点
+		jq('#uname').blur(this.loginUnameBlur);
+		
 		//绑定登录事件
-		jq(document).delegate('.loginSubmit','click',this.loginSubmit);
+		jq(document).delegate('.loginsubmit','click',this.loginSubmit);
+		
+		//点击注册
+		jq(document).delegate('.register','click',this.registerShow);
 
+		//注册邮箱输入框失去焦点
+		jq('#unameRegister').blur(this.registerUnameBlur);
+
+		//注册密码输入框失去焦点
+		jq('#passwdRegister').blur(this.registerPasswdBlur);
+
+		//注册密码确认输入框失去焦点
+		jq('#passwdAgain').blur(this.passwdAgain);
+
+		//绑定注册事件
+		jq(document).delegate('.registersubmit','click',this.registerSubmit);
+
+		//点击收起
+		jq(document).delegate('.close', 'click', this.hideAll);
+
+
+
+	},
+	/*
+	 *登录、注册、提示、闹钟、设置框的切换显示与隐藏
+	 *
+	 *
+	 */
+	show : function(classname){
+		var divlist = ['.loginDiv','.registerDiv','.remindDiv','.clockDiv','.settingDiv'];
+		if(classname){
+			for(var i = 0; i < divlist.length; i++){
+				if(divlist[i] != classname){
+					jq(divlist[i]).hide();
+				}else{
+					jq(classname).slideDown('normal');
+				}
+			}
+		}
+	},
+
+	/*
+	 *隐藏
+	 *
+	 */
+	hideAll : function(){
+			   
+		var divlist = ['.loginDiv','.registerDiv','.remindDiv','.clockDiv','.settingDiv'];
+		for(var i = 0; i < divlist.length; i++){
+			jq(divlist[i]).slideUp('normal');
+		}
+	},
+	
+	/*
+	 *登录账号输入框失去焦点
+	 *
+	 */
+	loginUnameBlur : function(){
+			var uname = jq.trim(jq('#uname').val());
+			if(!user.isRightFormat('username',uname)){
+				jq('#loginError').text(MSG.LOGIN.UNVALIDUNAME);
+//				jq(this).focus().select();
+			}
+		},
+	
+	/*
+	 * 注册密码输入框失去焦点
+	 *
+	 */
+	registerPasswdBlur : function(){
+		var passwd = jq.trim(jq('#passwdRegister').val());
+		if(!user.isRightFormat('password',passwd)){
+		    jq('#loginError').text(MSG.REGISTER.UNVALIDPASSWD);
+		    //jq(this).focus().select();
+		 }
+	},
+
+	/*
+	 * 注册账号输入框失去焦点
+	 *
+	 */
+	registerUnameBlur : function(){
+		var uname = jq.trim(jq('#unameRegister').val());
+		if(!user.isRightFormat('username',uname)){
+			jq('#loginError').text(MSG.REGISTER.UNVALIDUNAME);
+		//	jq(this).focus().select();
+		}
+	},
+	
+	/*
+	 * 注册密码确认输入框失去焦点
+	 * 
+	 */
+	passwdAgainBlur : function(){
+
+		var firstpass = jq.trim(jq('#passwdRegister').val());
+		var secondpass = jq.trim(jq('#passwdAgain').val());
+		if(!user.confirmpass(firstpass, secondpass)){
+			jq('#loginError').text(MSG.REGISTER.CONFIRMPASSWDFAIL);
+//			jq(this).focus().select();
+		}
 	},
 
 	/*
@@ -58,12 +154,13 @@ var easy = {
 	 */
 	loginShow : function(){
 		
-		jq('.loginDiv').show();
+		easy.show('.loginDiv');
 		if(base.getCookie('uname')){
 			jq('#uname').attr('value',base.getCookie('uname'));
 			jq('#passwd').focus();
-		};
-		jq('#uname').focus();
+		}else{
+			jq('#uname').focus();
+		}
 	},
 
 	/*
@@ -73,8 +170,8 @@ var easy = {
 	 */
 	loginSubmit : function(){ 
 			
-		var uname = jq('#uname');
-		var passwd = jq('#passwd');
+		var uname = jq('#uname').val();
+		var passwd = jq('#passwd').val();
 		if(user.isRightFormat('username',uname)){
 			if(user.isRightFormat('password',passwd)){
 				isLogin = user.login({username:uname, password: passwd});
@@ -88,6 +185,38 @@ var easy = {
 		}
 		this.initStatus();
 		return true;
+	},
+
+	/*
+	 *点击注册按钮后显示注册框
+	 *
+	 *
+	 */
+	registerShow : function(){
+		
+		easy.show('.registerDiv');
+		jq('#unameRegister').focus();
+	},
+
+	/*
+	 *提交注册处理
+	 *
+	 *
+	 */
+	registerSubmit : function(){
+		var emial = jq('#unameRegister').val();
+		var passwd = jq('#passwdRegister').val();
+		if(user.isRightFormat('email',email)){
+			if(user.isRightFormat('password',passwd)){
+				
+			}else{
+				jq('#loginError').text(MSG.REGISTER.UNVALIDU);
+				jq('#unameRegister').focus().select();
+			}
+		}else{
+			jq('#loginError').text(MSG.REGISTER.UNVALIDUNAME);
+			jq('#unameRegister').focus().select();
+		}
 	},
 
 	/*
@@ -117,7 +246,7 @@ var easy = {
 					 
 		var today = new Date();
 		var arr_week = new Array("星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六");
-		var time = date.getFullYear() + '年' + (date.getMonth() + 1) + '月' + date.getDate() + '日' + ' ' + arr_week[date.getDay()];
+		var time = today.getFullYear() + '年' + (today.getMonth() + 1) + '月' + today.getDate() + '日' + ' ' + arr_week[today.getDay()];
 
 		return time;
 	},
@@ -134,16 +263,16 @@ var easy = {
 var	user = {
 		
 	//用户名
-	userName : null;
+	userName : null,
 
 	//邮箱
-	email : null;
+	email : null,
 
 	//密码
-	passwd : null;
+	passwd : null,
 
 	//令牌
-	token : null;
+	token : null,
 
 	/*
 	*登录
@@ -153,7 +282,7 @@ var	user = {
 	*/
 	login : function(loginInfo){
 		
-		if (loginInfo.username && loginInfo.password) {
+		if (loginInfo && loginInfo.username && loginInfo.password) {
 			
 			var url = '../User.DB.php';
 			jq.getJSON(url, {request:loginInfo}, function(response){
@@ -171,19 +300,51 @@ var	user = {
 	*注册
 	*registerInfo 注册信息对象，里面存储用户注册的信息
 	*/
-	register : function(registerInfo){},
+	register : function(registerInfo){
+		
+		if(registerInfo && registerInfo.username && registerInfo.password){
+
+			var param = {'username':'registerInfo.username','password':'registerInfo.password'};
+			jq.getJSON(MSG.URL.REGISTERURL, {request:param}, function(response){
+				if(response.code == 0){
+					return true;
+				}
+				return false;
+			});		
+			
+		}
+		return false;
+	},
 
 	/*
 	*退出
 	*
 	*/
-	logout : function(){},
+	logout : function(){
+	
+		var uname = base.getCookie('uname');
+		var uid = base.getCookie('uid');
+		if(uname && uid){
+			var param = {uid:uid,token:token};
+			jq.getJSON(MSG.URL.LOGOUTURL,{request:param},function(response){
+				if(response.code == 1){
+					base.deleteCookie('uid');
+					base.deleteCookie('token');
+					return true;
+				}
+				return false;
+			});
+		}
+		return false;
+	},
 
 	/*
 	*记住密码，自动登录
 	*
 	*/
-	rememberMyLogin : function(){},
+	rememberMyLogin : function(){
+		
+	},
 
 	/*
 	*找回密码
@@ -215,7 +376,7 @@ var	user = {
 		}
 
 		return isOk;
-	}
+	},
 
 	/*
 	 *检查邮箱是否有效，1、检测格式；2、是否已注册
@@ -326,13 +487,12 @@ var	task = {
 	*
 	*
 	*/
-	 : function(){},
+	// : function(){},
 };
 
 //程序入口
-var  ez= jQuery.noConflict();
-ez(document).ready(function(){
+jq(document).ready(function(){
 	
-	easy.init();	
+	easy.initPage();	
 });
 

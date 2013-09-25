@@ -35,15 +35,15 @@
 
 #contentBar ul li.center{
 	font-size: 14px;
-	margin-left:380px;
+	margin-left:260px;
 }
 
 #contentBar ul li.right{
-	margin-left:100px;
+	margin-left:200px;
 	font-size: 16px;
 }
 
-#contentBar ul #login{
+#contentBar ul .login{
     margin-right:20px;
 	width:3em;
 }
@@ -104,7 +104,7 @@ text-align:left;
 margin-top:10px;
 }
 
-.login {
+.submitbtn {
 width: 30%;
 cursor: pointer;
 background: #20BEFC;
@@ -133,9 +133,10 @@ box-shadow: 0px 1px 2px 2px rgba(0, 0, 0, 0.07) inset,
 -o-transition: all 0.2s linear;
 transition: all 0.2s linear;
 }
+
 .register{
 width: 40%;
-margin-left:120px;
+margin-left:1em;
 }
 .registerDiv{
 height:200px;
